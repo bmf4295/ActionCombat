@@ -1,0 +1,58 @@
+[
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\ActionCombat.Build.cs",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\ActionCombat.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\ActionCombat.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\MCharacter.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\MCharacter.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\PlayerAnimInstance.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\Source\\ActionCombat\\PlayerAnimInstance.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\bfrie\\OneDrive\\Desktop\\ActionCombat\\.vscode\\compileCommands_Default\\ActionCombat.1.rsp"
+		],
+		"directory": "D:\\UnrealEngine\\UE_5.5\\Engine\\Source"
+	}
+]
