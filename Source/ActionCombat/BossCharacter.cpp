@@ -1,11 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "MCharacter.h"
-#include "PlayerAnimInstance.h"
+#include "BossCharacter.h"
 
 // Sets default values
-AMCharacter::AMCharacter()
+ABossCharacter::ABossCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -13,22 +12,21 @@ AMCharacter::AMCharacter()
 }
 
 // Called when the game starts or when spawned
-void AMCharacter::BeginPlay()
+void ABossCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	PlayerAnim = Cast<UPlayerAnimInstance>(GetMesh()->GetAnimInstance());
 }
 
 // Called every frame
-void AMCharacter::Tick(float DeltaTime)
+void ABossCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
 // Called to bind functionality to input
-void AMCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void ABossCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 

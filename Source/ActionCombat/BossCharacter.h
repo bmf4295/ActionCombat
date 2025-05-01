@@ -4,24 +4,21 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "MainPlayer.h"
-#include "MCharacter.generated.h"
-
+#include "Enemy.h"
+#include "BossCharacter.generated.h"
 
 UCLASS()
-class ACTIONCOMBAT_API AMCharacter : public ACharacter, public IMainPlayer
+class ACTIONCOMBAT_API ABossCharacter : public ACharacter, public IEnemy
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	AMCharacter();
+	ABossCharacter();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	UPROPERTY(BlueprintReadOnly)
-	class UPlayerAnimInstance* PlayerAnim;
 
 public:	
 	// Called every frame
