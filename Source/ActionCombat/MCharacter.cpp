@@ -3,12 +3,25 @@
 
 #include "MCharacter.h"
 #include "PlayerAnimInstance.h"
+#include "StatsComponent.h"
+#include "BlockComponent.h"
+#include "LockOnComponent.h"
+#include "CombatComponent.h"
+#include "TraceComponent.h"
+#include "PlayerActionsComponent.h"
+#include "EStat.h"
 
 // Sets default values
 AMCharacter::AMCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	StatsComp = CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
+	BlockComp = CreateDefaultSubobject<UBlockComponent>(TEXT("Block Component"));
+	LockonComp = CreateDefaultSubobject<ULockOnComponent>(TEXT("Lockon Component"));
+	CombatComp = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat Component"));
+	TraceComp = CreateDefaultSubobject<UTraceComponent>(TEXT("Trace Component"));
+	PlayerActionsComp = CreateDefaultSubobject<UPlayerActionsComponent>(TEXT("Player Actions Component"));
 
 }
 
@@ -35,5 +48,9 @@ void AMCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 }
 
 float AMCharacter::GetDamage(){
-	return 10.0f;
+	return StatsComp->Stats[EStat::Strength];
+}
+
+bool AMCharacter::HasEnoughStamina(float StaminaCost){
+	return StatsComp->Stats[EStat::Stamina] >= StaminaCost;
 }

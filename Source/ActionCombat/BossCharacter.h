@@ -15,6 +15,8 @@ class ACTIONCOMBAT_API ABossCharacter : public ACharacter, public IEnemy
 public:
 	// Sets default values for this character's properties
 	ABossCharacter();
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	class UStatsComponent* StatsComp;
 
 protected:
 	// Called when the game starts or when spawned
