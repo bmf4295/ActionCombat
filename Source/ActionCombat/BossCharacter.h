@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Enemy.h"
+#include "EEnemyState.h"
 #include "BossCharacter.generated.h"
 
 UCLASS()
@@ -18,6 +19,11 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	class UStatsComponent* StatsComp;
 
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<EEnemyState> InitialState;
+
+	class UBlackboardComponent* BlackboardComp;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,5 +34,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION(BlueprintCallable)
+	void DetectPawn(APawn* PawnDetected, APawn* PawnToCheckFor);
 
 };
