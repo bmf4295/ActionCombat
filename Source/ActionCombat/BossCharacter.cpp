@@ -3,6 +3,7 @@
 
 #include "BossCharacter.h"
 #include "StatsComponent.h"
+#include "CombatComponent.h"
 #include "AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
@@ -12,6 +13,7 @@ ABossCharacter::ABossCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	StatsComp = CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
+	CombatComp = CreateDefaultSubobject<UCombatComponent>(TEXT("Combat Component"));
 }
 
 // Called when the game starts or when spawned
@@ -48,3 +50,15 @@ void ABossCharacter::DetectPawn(APawn* PawnDetected, APawn* PawnToCheckFor){
 	BlackboardComp->SetValueAsEnum(TEXT("CurrentState"), EEnemyState::Range);
 }
 
+float ABossCharacter::GetDamage(){
+	return StatsComp->Stats[EStat::Strength];
+}
+
+
+void ABossCharacter::Attack(){
+	CombatComp->RandomAttack();
+}
+
+float ABossCharacter::GetAnimDuration(){
+	return CombatComp->AnimDuration;
+}

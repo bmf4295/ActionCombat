@@ -36,6 +36,7 @@ public:
 	UCombatComponent();
 	UPROPERTY(BlueprintAssignable)
 	FOnAttackPerformedSignature OnAttackPerformedDelegate;
+	float AnimDuration; 
 
 protected:
 	// Called when the game starts
@@ -52,5 +53,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void HandleResetAttack();
 
-	
+	void RandomAttack();
 };

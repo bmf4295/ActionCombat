@@ -16,7 +16,11 @@ class ACTIONCOMBAT_API UBTT_RangedAttack : public UBTTaskNode
 	
 	UPROPERTY(EditAnywhere)
 	UAnimMontage* AnimMontage;
-	public:
+	double Threshold = 0.9f;
 
+	UPROPERTY(EditAnywhere)
+	float MeleeRange = 1250.0f;
+
+	public:
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 };

@@ -4,33 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "FTraceSockets.h"
-#include "TraceComponent.generated.h"
+#include "LookAtPlayerComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class ACTIONCOMBAT_API UTraceComponent : public UActorComponent
+class ACTIONCOMBAT_API ULookAtPlayerComponent : public UActorComponent
 {
 	GENERATED_BODY()
-	class USkeletalMeshComponent* SkeletalComp; 
-
-	UPROPERTY(EditAnywhere)
-	TArray<FTraceSockets> Sockets;
-
-	UPROPERTY(EditAnywhere)
-	double BoxWidth = 30.0; 
-
-	UPROPERTY(EditAnywhere)
-	double BoxHeight = 30.0; 
 	
 	UPROPERTY(EditAnywhere)
-	bool bDebugMode = false;
-
-	TArray<AActor*> TargetToIgnore;
-
+	float RotateSpeed = 400.0f;
 public:	
 	// Sets default values for this component's properties
-	UTraceComponent();
+	ULookAtPlayerComponent();
 
 protected:
 	// Called when the game starts
@@ -39,11 +25,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	
-	UFUNCTION(BlueprintCallable)
-	void HandleResetAttack();
-	
 	UPROPERTY(VisibleAnywhere)
-	bool bIsAttacking= false;
+	bool bCanRotate = false;
 		
 };

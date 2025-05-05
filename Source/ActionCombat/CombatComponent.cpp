@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CombatComponent.h"
 #include "GameFramework/Character.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -16,19 +15,16 @@ UCombatComponent::UCombatComponent()
 	// ...
 }
 
-
 // Called when the game starts
 void UCombatComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	CharacterRef = GetOwner<ACharacter>();
-	
 }
 
-
 // Called every frame
-void UCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
@@ -37,21 +33,34 @@ void UCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 void UCombatComponent::ComboAttack()
 {
-	if(CharacterRef->Implements<UMainPlayer>()){
-		IMainPlayer* IPlayerRef = Cast<IMainPlayer>(CharacterRef);
-		if(IPlayerRef && !IPlayerRef->HasEnoughStamina(StaminaCost)){
+	if (CharacterRef->Implements<UMainPlayer>())
+	{
+		IMainPlayer *IPlayerRef = Cast<IMainPlayer>(CharacterRef);
+		if (IPlayerRef && !IPlayerRef->HasEnoughStamina(StaminaCost))
+		{
 			return;
 		}
 	}
-	if(!bCanAttack){return;}
+	if (!bCanAttack)
+	{
+		return;
+	}
 	bCanAttack = false;
 	CharacterRef->PlayAnimMontage(AttackAnimations[ComboCounter]);
 	ComboCounter++;
 	int32 MaxCombo = AttackAnimations.Num();
-	ComboCounter = UKismetMathLibrary::Wrap(ComboCounter, -1, MaxCombo-1);
+	ComboCounter = UKismetMathLibrary::Wrap(ComboCounter, -1, MaxCombo - 1);
 	OnAttackPerformedDelegate.Broadcast(StaminaCost);
 }
 
-void UCombatComponent::HandleResetAttack(){
-	bCanAttack =true;
+void UCombatComponent::HandleResetAttack()
+{
+	bCanAttack = true;
+}
+
+void UCombatComponent::RandomAttack()
+{
+	int RandomIndex = FMath::RandRange(0, AttackAnimations.Num() - 1);
+	AnimDuration = CharacterRef->PlayAnimMontage(AttackAnimations[RandomIndex]);
+	
 }

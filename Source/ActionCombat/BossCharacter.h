@@ -6,10 +6,11 @@
 #include "GameFramework/Character.h"
 #include "Enemy.h"
 #include "EEnemyState.h"
+#include "Fighter.h"
 #include "BossCharacter.generated.h"
 
 UCLASS()
-class ACTIONCOMBAT_API ABossCharacter : public ACharacter, public IEnemy
+class ACTIONCOMBAT_API ABossCharacter : public ACharacter, public IEnemy, public IFighter
 {
 	GENERATED_BODY()
 
@@ -18,6 +19,10 @@ public:
 	ABossCharacter();
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	class UStatsComponent* StatsComp;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	class UCombatComponent* CombatComp;
+
 
 	UPROPERTY(EditAnywhere)
 	TEnumAsByte<EEnemyState> InitialState;
@@ -37,5 +42,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DetectPawn(APawn* PawnDetected, APawn* PawnToCheckFor);
+	virtual float GetDamage() override;
 
+	virtual void Attack() override;
+
+	virtual float GetAnimDuration() override;
 };
