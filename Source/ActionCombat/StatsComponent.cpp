@@ -36,6 +36,11 @@ void UStatsComponent::ReduceHealth(float Damage){
 
 	Stats[EStat::Health] = Stats[EStat::Health]-Damage;
 	Stats[EStat::Health] = UKismetMathLibrary::FClamp(Stats[EStat::Health], 0.0,Stats[EStat::MaxHealth]);
+	OnHealthPercentUpdateDelegate.Broadcast(GetStatPercentage(EStat::Health, EStat::MaxHealth));
+
+	if(Stats[EStat::Health] == 0.0){
+		OnZeroHealthDelegate.Broadcast();
+	}
 }
 
 void UStatsComponent::ReduceStamina(float Amount){
@@ -49,6 +54,7 @@ void UStatsComponent::ReduceStamina(float Amount){
 		TEXT("EnableRegen"),
 		this
 	};
+	OnStaminaPercentUpdateDelegate.Broadcast(GetStatPercentage(EStat::Stamina,EStat::MaxStamina ));
 	UKismetSystemLibrary::RetriggerableDelay(GetWorld(),StaminaDelayDuration, FuntionInfo );
 }
 void UStatsComponent::RegenStamina(){
@@ -59,8 +65,14 @@ void UStatsComponent::RegenStamina(){
 		GetWorld()->GetDeltaSeconds(),
 		StaminaRegenRate
 	);
+
+	OnStaminaPercentUpdateDelegate.Broadcast(GetStatPercentage(EStat::Stamina,EStat::MaxStamina ));
 }
 
 void UStatsComponent::EnableRegen(){
 	bCanRegen = true;
+}
+
+float UStatsComponent::GetStatPercentage(EStat Current, EStat Max){
+	return Stats[Current]/ Stats[Max];
 }
