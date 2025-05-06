@@ -48,7 +48,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UFUNCTION(BlueprintCallable)
-	void ReduceHealth(float Damage);
+	void ReduceHealth(float Damage, AActor* Opponent);
 	UFUNCTION(BlueprintCallable)
 	void ReduceStamina(float Amount);
 	UFUNCTION(BlueprintCallable)

@@ -54,3 +54,34 @@ float AMCharacter::GetDamage(){
 bool AMCharacter::HasEnoughStamina(float StaminaCost){
 	return StatsComp->Stats[EStat::Stamina] >= StaminaCost;
 }
+
+void AMCharacter::HandleDeath(){
+	PlayAnimMontage(DeathAnimMontage);
+	DisableInput(GetController<APlayerController>());
+}
+
+void AMCharacter::EndLockonWithActor(AActor* ActorRef){
+	if(ActorRef != LockonComp->CurrentTargetActor){
+		return;
+	}
+	LockonComp->EndLockon();
+}
+
+bool AMCharacter::CanTakeDamage(AActor* Opponent){
+	if(PlayerActionsComp->bIsRollActive){
+		return false;
+	}
+
+	if(PlayerAnim->bIsBlocking){
+		return BlockComp->Check(Opponent);
+	}
+	return true;
+}
+
+void AMCharacter::PlayHurtAnim(TSubclassOf<class UCameraShakeBase> CameraShakeTemplate){
+	PlayAnimMontage(HurtAnimMontage);
+	
+	if(CameraShakeTemplate){
+		GetController<APlayerController>()->ClientStartCameraShake(CameraShakeTemplate);
+	}
+}

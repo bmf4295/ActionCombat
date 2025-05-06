@@ -24,6 +24,7 @@ class ACTIONCOMBAT_API UPlayerAnimInstance : public UAnimInstance
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bIsInCombat =false;
+	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float CurrentDirection{0.f};
 
@@ -33,5 +34,7 @@ class ACTIONCOMBAT_API UPlayerAnimInstance : public UAnimInstance
 	UFUNCTION(BlueprintCallable)
 	void UpdateDirection();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsBlocking =false;
 
 };

@@ -11,7 +11,7 @@
 
 
 UBTT_RangedAttack::UBTT_RangedAttack(){
-    bCreateNodeInstance = true;
+    //bCreateNodeInstance = true;
 }
 
 EBTNodeResult::Type UBTT_RangedAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory){

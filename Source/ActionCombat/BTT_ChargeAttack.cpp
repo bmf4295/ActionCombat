@@ -15,7 +15,7 @@ UBTT_ChargeAttack::UBTT_ChargeAttack(){
     bNotifyTick = true;
 
     MoveCompletedDelegate.BindUFunction(this,"HandleMoveCompleted");
-    bCreateNodeInstance = true;
+    //bCreateNodeInstance = true;
 }
 
 EBTNodeResult::Type UBTT_ChargeAttack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory){

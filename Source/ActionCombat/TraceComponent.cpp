@@ -7,6 +7,7 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Fighter.h"
 #include "Engine/DamageEvents.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values for this component's properties
 UTraceComponent::UTraceComponent()
@@ -93,6 +94,7 @@ void UTraceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 		}
 		TargetActor->TakeDamage(CharacterDamage, TargetAttackEvent, GetOwner()->GetInstigatorController(), GetOwner());
 		TargetToIgnore.AddUnique(TargetActor);
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticleTemplate, Hit.ImpactPoint);
 	}
 }
 

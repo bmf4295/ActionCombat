@@ -26,4 +26,5 @@ public:
 	virtual void Attack(){}
 	virtual float GetAnimDuration(){return 0.f;}
 	virtual float GetMeleeRange(){return 0.f;}
+	virtual bool CanTakeDamage(AActor* Opponent){return true;}
 };

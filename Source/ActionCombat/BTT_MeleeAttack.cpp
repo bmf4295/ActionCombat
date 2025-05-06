@@ -13,7 +13,7 @@ UBTT_MeleeAttack::UBTT_MeleeAttack(){
 
     bNotifyTick = true;
     MoveCompletedDelegate.BindUFunction(this, "FinishAttackTask");
-    bCreateNodeInstance = true;
+    //bCreateNodeInstance = true;
 }
 EBTNodeResult::Type UBTT_MeleeAttack::ExecuteTask(UBehaviorTreeComponent &OwnerComp, uint8 *NodeMemory)
 {
@@ -40,9 +40,6 @@ EBTNodeResult::Type UBTT_MeleeAttack::ExecuteTask(UBehaviorTreeComponent &OwnerC
         AIRef->GetCharacter()->GetWorldTimerManager().SetTimer(AttackTimerHandle, this, &UBTT_MeleeAttack::FinishAttackTask, FighterRef->GetAnimDuration(), false);
         
     }
-
-    
-
     return EBTNodeResult::InProgress;
 }
 

@@ -36,7 +36,7 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void StartLockon(float Radius= 750.f);
-	void EndLockon();
+	
 
 	UFUNCTION(BlueprintCallable)
 	void ToggleLockon(float Radius= 750.f);
@@ -50,4 +50,5 @@ public:
 	AActor* CurrentTargetActor;
 	UPROPERTY(BlueprintAssignable)
 	FOnUpdatedTargetSignature OnUpdatedTargetDelegate;
+	void EndLockon();
 };
