@@ -18,8 +18,6 @@ class ACTIONCOMBAT_API UBTT_MeleeAttack : public UBTTaskNode
 	float AttackRadius = 200.0f;
 	UPROPERTY(EditAnywhere)
 	float AcceptableRadius = 100.0f;
-
-
 	FScriptDelegate MoveCompletedDelegate;
 	
 	bool bIsFinished = false;
